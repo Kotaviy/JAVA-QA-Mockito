@@ -31,6 +31,22 @@ public class MovieManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void limit() {
+        MovieManager manager = new MovieManager(5);
+
+        manager.add("Film 1");
+        manager.add("Film 2");
+        manager.add("Film 3");
+        manager.add("Film 4");
+        manager.add("Film 5");
+        manager.add("Film 6");
+
+        String[] expected = {"Film 6", "Film 5", "Film 4", "Film 3", "Film 2"};
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
 
     @Test
     public void emptyArray() {
